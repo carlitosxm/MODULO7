@@ -1,23 +1,35 @@
-<div>
-    <div>
-        <h3>CURSO {{course.name}} </h3>
+<div class="container mt-4">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body bg-primary text-white rounded">
+            <h3 class="mb-0">CURSO: {{course.name}}</h3>
+        </div>
     </div>
-    <div>
-        <h3>ALUMNOS</h3>
-        <thead>
-            <th>IDENTIFICACION</th>
-            <th>NOMBRE</th>
-            <th>APELLIDO</th>
-        </thead>
-        <TBOdy>
-        
-        @for (item of course.student; track $index) {
-            <TR>
-                <TD> {{item.identification}} </TD>
-                <TD>{{item.name}}</TD>
-                <TD>{{item.surname}}</TD>
-            </TR>
-        }
-    </TBOdy>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-light">
+            <h4 class="mb-0 text-secondary">LISTA DE ALUMNOS</h4>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>IDENTIFICACIÓN</th>
+                            <th>NOMBRE</th>
+                            <th>APELLIDO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of course.student; track $index) {
+                            <tr>
+                                <td>{{item.identification}}</td>
+                                <td>{{item.name}}</td>
+                                <td>{{item.surname}}</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
