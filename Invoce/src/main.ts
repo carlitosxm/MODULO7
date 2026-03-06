@@ -4,5 +4,5 @@ import { App } from './app/app';
 import { InvoiceComponent } from './app/components/invoice/invoice';
 import { CourseComponent } from './app/components/course/course';
 
-bootstrapApplication(CourseComponent, appConfig)
+bootstrapApplication(InvoiceComponent, appConfig)
   .catch((err) => console.error(err));

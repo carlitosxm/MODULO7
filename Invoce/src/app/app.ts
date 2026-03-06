@@ -1,14 +1,13 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { InvoiceComponent } from './components/invoice/invoice';
-import { CourseComponent } from './components/course/course';
+// front/src/app/app.config.ts
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { routes } from './app.routes';
 
-@Component({
-  selector: 'app-root',
-  imports: [RouterOutlet, InvoiceComponent, CourseComponent],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
-})
-export class App {
-  protected readonly title = signal('Invoce');
-}
+export const App: ApplicationConfig = {
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+    provideHttpClient() // Habilita HttpClient
+  ]
+};
