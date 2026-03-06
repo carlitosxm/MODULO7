@@ -1,0 +1,16 @@
+<table class="table table-hover table-striped mb-0">
+    <thead class="table-dark">
+        <tr>
+            <th>IDENTIFICACIÓN</th>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of students; track $index) {
+
+                <tr student-item [item]="item"></tr>
+        
+        }
+    </tbody>
+</table>

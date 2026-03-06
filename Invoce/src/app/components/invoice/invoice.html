@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="card">
+    <div class="card my-5">
         <div class="card-header">
             <H2>factura</H2>
         </div>
@@ -9,48 +9,16 @@
                     <li>No. {{invoice.id}}</li>
                 </ul>
             </div>
-            <div>
-                <h3>Empresa</h3>
-                <ul>
-                    <li>RUC {{invoice.company.ruc}}</li>
-                    <li>NOMBRE {{invoice.company.name}}</li>
-                    <li>DIRECCION {{invoice.company.address.city}}
-                        - {{invoice.company.address.principalStreet}}
-                        - {{invoice.company.address.code}}
-                        - {{invoice.company.address.secondaryStreet}}
-                    </li>
-                </ul>
+            <div class="row">
+                <div class="col">
+                    <company-view [company]="invoice.company"></company-view>
+                </div>
+                <div class="col">
+                    <customer-view [customer]="invoice.customer"></customer-view>
+                </div>
             </div>
-            <DIv>
-                <h3>CLIENTE</h3>
-                <UL>
-                    <Li>NOMBRE {{invoice.customer.name}} {{invoice.customer.surname}} </Li>
-                    <Li>CEDULA {{invoice.customer.id}} </Li>
-                    <li>DIRECCION {{invoice.customer.address.city}}
-                        - {{invoice.customer.address.principalStreet}}
-                        - {{invoice.customer.address.code}}
-                        - {{invoice.customer.address.secondaryStreet}}
-                    </li>
-                </UL>
-            </DIv>
-            <div>
-                <TAble>
-                    <THead>
-                        <TH>PRODUCTO</TH>
-                        <TH>PRECIO UNITARIO</TH>
-                        <TH>CANTIDAD</TH>
-                    </THead>
-                    <TBOdy>
-                        @for (item of invoice.items; track $index) {
-
-                        <TR>
-                            <TD> {{item.product.name}} </TD>
-                            <TD>{{item.product.price}}</TD>
-                            <TD>{{item.quanty}}</TD>
-                        </TR>
-                        }
-                    </TBOdy>
-                </TAble>
+            <div class="card">
+            <invoice-detail [items]="invoice.items"></invoice-detail>          
             </div>
         </div>
     </div>

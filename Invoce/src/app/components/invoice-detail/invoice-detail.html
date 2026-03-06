@@ -1,0 +1,13 @@
+<TAble class="table table-striped">
+    <THead class="">
+        <TH>PRODUCTO</TH>
+        <TH>PRECIO UNITARIO</TH>
+        <TH>CANTIDAD</TH>
+    </THead>
+    <TBOdy>
+        @for (item of items; track $index) {
+            <tr invoice-item [item]="item"></tr>
+        
+        }
+    </TBOdy>
+</TAble>
